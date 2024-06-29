@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+body {
+    background: #b6b5b5;
+    display: flex;
+    justify-content: center;
+}
+
+.mail-form {
+    margin-top: 50px;
+    width: 700px;
+    height: 500px;
+    /* border: 2px solid black; */
+    border-radius: 1.5rem;
+    padding: 0.5rem;
+    background: #ededed;
+}
+
+.mail-form__content {
+    /* border: 1px solid black; */
+    border-radius: 1.5rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column; /* адаптивная верска */
+    flex-wrap: wrap;
+}
+
+.mail-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    border-bottom: gray 1px solid;
+    padding-bottom: 0.5rem;
+}
+                                    /* --- Хеадер: стили для кнопок окна емейла --- */
+.mail-header__btn-section {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-section-content__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    width: 20px;
+    height: 20px;
+    font-size: 1.2rem;
+    color: #7e7d7d;
+}
+
+.btn-section-content__btn:hover {
+    cursor: pointer;
+    font-weight: bold;
+
+}
+
+.btn:hover {
+    background: #b6b5b5;
+}
+
+
+                                    /* --- Хеадер: стили для поля ввода адреса-емейла --- */
+.mail-header__adress-input {    
+    width: 100%;
+    display: flex;
+    align-self: flex-start;
+    /* padding: 0.2rem; */
+}
+
+.adress-input-content {
+    width: 100%;
+    display: flex;
+    /* align-self: flex-start; */
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.adress-input-content__mail-to {
+    margin-right: 0.3rem;
+    font-family: "Open Sans", sans-serif; /* подключен шрифт из гугл-шрифтов (ссылка в самом начале) */
+    font-optical-sizing: auto;
+    /* font-weight: bold;
+    font-style: normal; */
+    color: gray;
+}
+
+.adress-input-content__input {
+    /* width: 500px; */
+    width: 75%;
+    min-width: 300px;
+    border: none;
+    height: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+}
+.adress-input-content__input:focus {
+    outline: none; /* убирает границы поля при клике на него */
+}
+
+.mail-header__theme-input {
+    width: 100%;
+    display: flex;
+    /* align-self: flex-start; */
+    align-items: center;
+    /* justify-content: center; */
+    padding-top: 0.5rem;
+    border-top: 1px solid gray;
+}
+
+.theme-input-content__mail-theme {
+    margin-right: 0.3rem;
+    font-family: "Open Sans", sans-serif; /* подключен шрифт из гугл-шрифтов (ссылка в самом начале) */
+    font-optical-sizing: auto;
+    /* font-weight: bold;
+    font-style: normal; */
+    color: gray;
+}
+
+.theme-input-content__input {
+    width: 500px;
+    width: 75%; /* вроде дает возможность адаптировать размер поля input при изменинии габаритов экрана */
+    min-width: 300px;
+    border: none;
+    height: 1.5rem;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+}
+
+.theme-input-content__input:focus {
+    outline: none;
+}
+
+                                                            /* --- Стили для тела письма (начало): --- */
+.mail-body {
+    margin-top: 1rem;    
+}
+
+
+.body-content_row {
+    height: 270px;
+    background: white;
+    padding: 0.5rem;
+    overflow: auto;
+    /* resize: both; - дает возможность менять размер элемента */
+    box-shadow: inset 0 0 2px #ccc;
+    /* white-space: pre-wrap; - поддержка пробелов и переносов (есть по умолчанию)*/
+    border-radius: 0.5rem;
+    font-family: "Open Sans", sans-serif;
+    /* font-weight: bold; */
+    min-width: 300px;
+}
+
+.body-content_row:focus {
+    outline: none;
+}
+
+                                                            /* --- Стили для тела письма (конец) --- */
+
+.footer {
+    margin-top: 1.5rem;
+}
+
+.footer-content {
+    padding: 0.5rem;    
+}
+
+.footer-parts {
+    display: flex;
+    justify-content: space-between; /* выравнивает несколько боксов в одном ряду по расстоянию между ними */
+    align-items: center;
+}
+
+.left-part-content {
+    display: flex;
+    gap: 1rem;
+    margin-left: 1.5rem;
+}
+
+.left-part-content__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7e7d7d;
+    font-size: 1.3rem;
+    width: 20px;
+    height: 20px;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+}
+
+.left-part-content__item:hover {
+    cursor: pointer;
+    background: #b6b5b5;
+}
+
+
+.mid-part-content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.mid-part-content__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7e7d7d;
+    font-size: 1.3rem;
+    width: 20px;
+    height: 20px;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+}
+
+.mid-part-content__item:hover {
+    cursor: pointer;
+    background: #b6b5b5;
+}
+
+/* cстилизация кнопки и календаря */
+
+.right-part-content__item {
+    display: flex;
+    gap: 0.8rem;
+    font-size: 1rem;
+    font-family: "Open Sans", sans-serif;
+    /* font-weight: bold; */
+}
+
+.send_btn {
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 135px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    background: black;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.7rem;
+    /* box-shadow: 10px 5px 5px rgb(0, 0, 0); горизонтальное смещение / вертикальное смещение / радиус размытия / цвет */
+}
+
+.calendar_btn {
+    padding-left: 0.5rem;
+    border-left: solid 1px #7e7d7d;
+    color: #7e7d7d;
+    margin-right: 0.1rem;;
+}
+
+ .send_btn:hover {
+    cursor: pointer;    
+}
+
+.calendar_btn:hover {
+    cursor: pointer;
+    color: white;
+}
