@@ -27,10 +27,6 @@ function showHideFontSizeMenu(e) {
         fontSizeMenu.style.visibility = '';
          fontSizeMenu.removeAttribute('style');
     }
-
-    // if (fontSizeMenuState == 'visible') {
-    //     fontSizeMenu.style.visibility = '';
-    // }
 };
 
 // --------------------------------------------------- //
@@ -107,10 +103,11 @@ function hideActiveMenus() {
 // Открыть / закрыть меню выбора приоритета письма:
 function showHideMailPriMenu(e) {
     let target = e.target;
-
-    if (!target.dataset.mailPriorityMenu) {
-        return;
-    };
+    
+    //if (target.id !== 'mail-priority-btn') { // если указать эту проверку, то обработчик (event.target) будет вызываться только с краев кнопки
+    // (т.к. в центре ее дочерние эл-ты). Т.е. на document этот обработчик не прицепить.
+    //    return;
+    //}
 
     let mailPriMenu = document.querySelector('.mail-priority-menu');
     let mailPriMenuState = mailPriMenu.style.visibility;
@@ -139,22 +136,6 @@ function highLightPriorityBox(e) {
        ) {
         mailPriorityLabel.style.border = '2px solid #b6b5b5';
     }
-    
-    // if (target.dataset.priorityHigh) {
-    //     mailPriorityLabel.style.border = '2px solid #b6b5b5';
-    // };
-
-    // if (target.dataset.priorityMedium) {
-    //     mailPriorityLabel.style.border = '2px solid #b6b5b5';
-    // };
-
-    // if (target.dataset.priorityLow) {
-    //     mailPriorityLabel.style.border = '2px solid #b6b5b5';
-    // };
-
-    // if (target.dataset.priorityStandard) {
-    //     mailPriorityLabel.style.border = '2px solid #b6b5b5';
-    // };
 }
 
 // Стандартный цвет (серый) рамки выбора приоритета письма:
@@ -240,9 +221,8 @@ Array.from(fontStyleBtnsList).forEach( (btn) => {
 document.querySelector('.mail-body-text').addEventListener('mousedown', hideActiveMenus);
 
 // Открыть / закрыть меню выбора приоритета письма:
-Array.from( document.querySelectorAll('.footer-btn') ).forEach( (btn) => {
-    btn.addEventListener('click', showHideMailPriMenu);
-})
+const mailPriorityBtn = document.querySelector('#mail-priority-btn');
+mailPriorityBtn.addEventListener('click', showHideMailPriMenu);
 
 // Подсветить элемент выбора приоритета письма:
 Array.from( document.querySelectorAll('.mail-priority-menu__elem') ).forEach( (menuElem) => {
@@ -254,4 +234,5 @@ document.querySelector('.mail-priority-menu').addEventListener('mouseover', stan
 // Покрасить фон элемента выбора приоритета письма:
 Array.from( document.querySelectorAll('.mail-priority-menu__elem') ).forEach( (menuElem) => {
     menuElem.addEventListener('click', paintPriorityBoxBackground)})
-    
+
+
