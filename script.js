@@ -9,7 +9,8 @@
 // ---------------------------------------------------
 function showHideFontSizeMenu(e) {
     let target = e.currentTarget;
-
+    // если работать с классами (и стилями в них), кода меньше будет - код компактнее;
+    // fontSizeMenu.classList.toggle('hidden') - скроет / открое меню при клике ("toggle" это переключатель)
     if (!target.dataset.fontSize) { // тут дата-атрибут пишется camelCase, а в html как "font-size"
         return;
     };
@@ -25,7 +26,7 @@ function showHideFontSizeMenu(e) {
 
     else {
         fontSizeMenu.style.visibility = '';
-         fontSizeMenu.removeAttribute('style');
+        fontSizeMenu.removeAttribute('style');
     }
 };
 
@@ -155,6 +156,8 @@ function paintPriorityBoxBackground(e) {
     let mailPriMenu = document.querySelector('.mail-priority-menu');    
     // проверки на наличие dataset нету, это принципиально?
     
+    // написать отдельно стили под каждый приоритет, очищать класс, присваивать элементу новый класс из дата атрибута
+    // каждому элементу написать: data-priority='high' / medium / low и т.д; const {priority} = target.dataset;
     if (target.dataset.priorityHigh) {
         mailPriorityLabel.style.background = '#edea40';
         mailPriMenu.style.visibility = 'hidden';

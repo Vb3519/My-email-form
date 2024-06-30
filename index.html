@@ -16,8 +16,14 @@
         <!-- /////////////////////////////////////////////////////// -->
             <!-- ХЕАДЕР -->
             <div class="mail-header">
+                <!-- <div class="mail__header header"></div> Пример именования -->
+                <!-- <div class="header__btns header-btns"></div> list (класс) это "ul" или "ol" -->
+                <!-- <div class="header-btns__btn mail-priority-label"></div> -->
                 <div class="header-btns"> <!-- кнопки хеадера [X], [_] и т.д. -->
-                    <div class="mail-priority-label" style="border: 2px solid #ededed;">
+                    <!-- Придерживаться правила, что для одного блока: два класса (родительский и свой), или дополнительные - стилизация / скрипты -->
+                    <!-- Семантические теги: "header", "nav" - навигационное меню; "footer", "main" (делится на секции "section"), "article"
+                    (отдельный блок информации, который может быть где угодно) -->
+                    <div class="mail-priority-label">
                         <i class="fa-regular fa-font-awesome"></i>
                     </div>
 
@@ -39,7 +45,7 @@
                             <i class="fa-solid fa-xmark"></i>
                         </div>
                     </div> 
-                </div>                            
+                </div>
                 </div>
     
                 <div class="header-input"> <!-- Адрес отправки -->
