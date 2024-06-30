@@ -24,54 +24,55 @@ body {
     background: #ededed;
 }
 
-.mail-header {
+.mail__header {
     display: flex;
     flex-direction: column;
 }
 
-.mail-priority-label {
+.header__label-and-btns-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid gray;
+}
+
+
+.header-container__label {
+    display: inline;
     padding: 0.3rem;
-    /* background: #cacaca; */
+    /* background: #cacaca;*/
     border-radius: 0.2rem;
     font-size: 1.4rem;
     color: #7e7d7d;
     border: 2px solid #ededed;
 }
 
-.header-btns-container {
-    display: flex;
-    justify-content: right;
+.header-container__btns {    
+    margin-left: auto;
+    display: flex;    
     align-items: center;
+    /* gap: 0.3rem; */
 }
 
-.header-btns {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid gray;            
-}
-
-.header_btn__content {
+.header-btns__btn {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 20px;
-    height: 20px;    
+    height: 20px;
     border-radius: 0.4rem;
     padding: 0.3rem;
     color: #7e7d7d;
     font-size: 1.1rem;
 }
 
-/* несколько раз повторяется (добавить общий стиль?) */
-.header_btn__content:hover {
+.header-btns__btn:hover {
     cursor: pointer;
     background: #b6b5b5;
 }
 
 /* //////////////////////////////////////////////////////////////////////////////////////////////////// */
-.header-input {
+.header__input {
     display: flex;
     
 }
@@ -241,6 +242,10 @@ body {
     position: absolute;
     left: 100px;
     top: 38px;    
+}
+
+.menu-active { /* elemName.classList.toggle('className') по обработчику включает / выключает указанный класс */    
+    visibility: visible; /* отображает / скрывает меню размеров шрифта */
 }
 
 .font-color-menu {

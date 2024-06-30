@@ -12,60 +12,47 @@
 </head>
 <body>
     <div class="mail"> <!-- окно почты -->
-        
         <!-- /////////////////////////////////////////////////////// -->
-            <!-- ХЕАДЕР -->
-            <div class="mail-header">
-                <!-- <div class="mail__header header"></div> Пример именования -->
-                <!-- <div class="header__btns header-btns"></div> list (класс) это "ul" или "ol" -->
-                <!-- <div class="header-btns__btn mail-priority-label"></div> -->
-                <div class="header-btns"> <!-- кнопки хеадера [X], [_] и т.д. -->
-                    <!-- Придерживаться правила, что для одного блока: два класса (родительский и свой), или дополнительные - стилизация / скрипты -->
-                    <!-- Семантические теги: "header", "nav" - навигационное меню; "footer", "main" (делится на секции "section"), "article"
-                    (отдельный блок информации, который может быть где угодно) -->
-                    <div class="mail-priority-label">
-                        <i class="fa-regular fa-font-awesome"></i>
+         <!-- ХЕАДЕР -->
+        <div class="mail__header header">
+            <div class="header__label-and-btns-container header-container">
+                <div class="header-container__label mail-priority-label">
+                    <i class="fa-regular fa-font-awesome"></i>
+                </div>
+    
+                <div class="header-container__btns header-btns">
+                    <div class="header-btns__btn">
+                        <i class="fa-solid fa-window-minimize"></i>
                     </div>
+    
+                    <div class="header-btns__btn">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> <!-- добавлено с fontawesome.com -->
+                    </div>
+    
+                    <div class="header-btns__btn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+            </div> 
 
-                    <div class="header-btns-container">
-                        <div class="header-btn">
-                        <div class="header_btn__content">
-                            <i class="fa-solid fa-window-minimize"></i>
-                        </div>
-                    </div>
-                    
-                   <div class="header-btn">
-                        <div class="header_btn__content">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> <!-- добавлено с fontawesome.com -->
-                        </div>
-                    </div>
-                    
-                    <div class="header-btn">
-                        <div class="header_btn__content">
-                            <i class="fa-solid fa-xmark"></i>
-                        </div>
-                    </div> 
-                </div>
-                </div>
-    
-                <div class="header-input"> <!-- Адрес отправки -->
-                    <div class="header-input__content">
-                        <span class="input-label">Mail to:</span>
-                        <input class="input-field" type="text">
-                    </div>
-                </div>
-    
-                <div class="header-input"> <!-- Тема письма -->
-                    <div class="header-input__content">
-                        <span class="input-label">Theme:</span>
-                        <input class="input-field" type="text">
-                    </div>
+            <div class="header__input header-input"> <!-- Адрес отправки -->
+                <div class="header-input__content input-content">
+                    <span class="input-content__label">Mail to:</span>
+                    <input class="input-content__field" type="text">
                 </div>
             </div>
-            
+    
+            <div class="header__input header-input"> <!-- Тема письма -->
+                <div class="header-input__content input-content">
+                    <span class="input-content__label">Theme:</span>
+                    <input class="input-content__field" type="text">
+                </div>
+            </div>
+        </div>
+           
         <!-- /////////////////////////////////////////////////////// -->
-            <!-- БОДИ -->
-            <div class="mail-body">
+        <!-- БОДИ -->
+        <div class="mail-body">
                 <!-- ряд кнопок редактирования шрифта -->
                  <div class="font-edit-row">
             <!-- Жирный шрифт -->
@@ -87,7 +74,7 @@
             </div>
     
              <!-- Размер шрифта -->
-            <div class="font-edit-row__container font-size-edit-container" data-font-size="font-size">                
+            <div id="font-size-btn" class="font-edit-row__container font-size-edit-container" data-font-size="font-size">
                 <div class="font-edit-container__elem">
                     <i class="fa-solid fa-text-height"></i> <!-- обработчик не работает на элементах, пока везде не добавишь "dataset" -->
                 </div>                
@@ -113,7 +100,7 @@
             </div>
             
             <!-- Цвет шрифта -->
-             <div class="font-edit-row__container font-color-edit-container" data-font-color="font-color">
+             <div id="font-color-btn" class="font-edit-row__container font-color-edit-container" data-font-color="font-color">
                  <div class="font-edit-container__elem">
                     <i class="fa-solid fa-palette"></i>
                 </div>
@@ -141,79 +128,79 @@
             <!-- Окно ввода текста письма -->
             <div class="mail-body-text" contenteditable="true">
                 Всем привет! ^_^ Этот текст можно редактировать, напишите что-нибудь...</div>
-            </div>
+        </div>
     
         <!-- /////////////////////////////////////////////////////// -->
-            <!-- ФУТЕР -->
-            <div class="mail-footer">
-                <!-- футер (левая часть) -->
-                <div class="mail-footer__part">
+        <!-- ФУТЕР -->
+        <div class="mail-footer">
+            <!-- футер (левая часть) -->
+            <div class="mail-footer__part">
                     
-                    <div class="footer-btn">
-                        <div class="footer-elem-tooltip">Стереть весь<br> текст</div>
-                        <div class="footer-btn__content">
-                            <i class="fa-solid fa-trash-can"></i> <!-- значок (корзина) -->
-                        </div>                    
+                <div class="footer-btn">
+                    <div class="footer-elem-tooltip">Стереть весь<br> текст</div>
+                    <div class="footer-btn__content">
+                        <i class="fa-solid fa-trash-can"></i> <!-- значок (корзина) -->
                     </div>                    
+                </div>                    
                     
-                    <div class="footer-btn">
-                        <div class="footer-btn__content">
-                            <i class="fa-solid fa-ellipsis-vertical"></i> <!-- символ "три вертикальные точки" - опции -->
-                        </div>                    
+                <div class="footer-btn">
+                    <div class="footer-btn__content">
+                        <i class="fa-solid fa-ellipsis-vertical"></i> <!-- символ "три вертикальные точки" - опции -->
+                    </div>                    
+                </div>
+            </div>
+                
+            <!-- футер (правая часть) -->
+            <div class="mail-footer__part">
+
+                <div class="footer-btn" id="mail-priority-btn">
+                    <div class="footer-elem-tooltip">Выбор приоритета<br> письма</div>
+                    <div class="footer-btn__content">
+                        <i class="fa-solid fa-receipt"></i> <!-- значок (список) -->
                     </div>
                 </div>
-                
-                <!-- футер (правая часть) -->
-                <div class="mail-footer__part">
-                    
-                    <!-- меню выбора приоритета письма -->
-                    <div class="mail-footer__part mail-priority-menu">
-                        <div class="mail-priority-menu__elem" data-priority-high="priority-high">
-                            High
-                        </div>
-                        <div class="mail-priority-menu__elem" data-priority-medium="priority-medium">
-                            Medium
-                        </div>
-                        <div class="mail-priority-menu__elem" data-priority-low="priority-low">
-                            Low
-                        </div>
 
-                        <div class="mail-priority-menu__elem" data-priority-standard="priority-standard">
-                            Standard
-                        </div>
+                <!-- меню выбора приоритета письма -->
+                <div class="mail-footer__part mail-priority-menu">
+                    <div class="mail-priority-menu__elem" data-priority-high="priority-high">
+                        High
+                    </div>
+                    <div class="mail-priority-menu__elem" data-priority-medium="priority-medium">
+                        Medium
+                    </div>
+                    <div class="mail-priority-menu__elem" data-priority-low="priority-low">
+                        Low
                     </div>
 
-                    <div class="footer-btn" id="mail-priority-btn">
-                        <div class="footer-elem-tooltip">Выбор приоритета<br> письма</div>
-                        <div class="footer-btn__content">
-                            <i class="fa-solid fa-receipt"></i> <!-- значок (список) -->
-                        </div>                    
-                    </div>    
-                    
-                    <div class="footer-btn">                        
-                        <div class="footer-btn__content">
-                            <i class="fa-solid fa-face-smile"></i> <!-- символ смайл -->
-                        </div>
-                    </div>    
-                    
-                    <div class="footer-btn">
-                        <div class="footer-btn__content">
-                            <i class="fa-solid fa-paperclip"></i> <!-- значок (скрепка) -->
-                        </div>                    
+                    <div class="mail-priority-menu__elem" data-priority-standard="priority-standard">
+                        Standard
                     </div>
+                </div>
+                    
+                <div class="footer-btn">                        
+                    <div class="footer-btn__content">
+                        <i class="fa-solid fa-face-smile"></i> <!-- символ смайл -->
+                    </div>
+                </div>    
+                    
+                <div class="footer-btn">
+                    <div class="footer-btn__content">
+                        <i class="fa-solid fa-paperclip"></i> <!-- значок (скрепка) -->
+                    </div>                    
+                </div>
     
-                    <!-- кнопка отправки письма -->
-                    <div class="send-mail-btn">
-                        <button class="send-mail-btn__content">
-                            Send Now
-                            <div class="send-mail-btn__content__calendar">
-                                <i class="fa-solid fa-calendar-days"></i> <!-- символ календаря -->
-                            </div>
-                        </button>
-                    </div>
+                <!-- кнопка отправки письма -->
+                <div class="send-mail-btn">
+                    <button class="send-mail-btn__content">
+                        Send Now
+                        <div class="send-mail-btn__content__calendar">
+                            <i class="fa-solid fa-calendar-days"></i> <!-- символ календаря -->
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
 <script src="script.js"></script>
 </body>
 </html>

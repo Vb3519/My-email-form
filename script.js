@@ -7,71 +7,40 @@
 
 // ------------------------------------------------- Функции ------------------------------------------------------------ //
 // ---------------------------------------------------
+// Функция отрисовки / скрытия меню выбора размера шрифта (с помощью "elem.classList.toggle"):
 function showHideFontSizeMenu(e) {
     let target = e.currentTarget;
-    // если работать с классами (и стилями в них), кода меньше будет - код компактнее;
-    // fontSizeMenu.classList.toggle('hidden') - скроет / открое меню при клике ("toggle" это переключатель)
-    if (!target.dataset.fontSize) { // тут дата-атрибут пишется camelCase, а в html как "font-size"
-        return;
+
+    if (target.id !== 'font-size-btn') {
+        return; // если обработчик на "e.currentTarget" эта проверка НЕ нужна
     };
 
     let fontSizeMenu = document.querySelector('.font-size-menu');
-    let fontSizeMenuState = fontSizeMenu.style.visibility;
-
-    if (fontSizeMenuState == '') {
-        fontSizeMenu.style.visibility = 'visible'; /* При присваивании тут значения переменной
-        "fontSizeMenuState = visible" работать не будет, т.к. это будет не стиль а просто переменная со словом "visible"
-        Проверь если через const объявлена "fontSizeMenuState" будет ошибка?*/
-    }
-
-    else {
-        fontSizeMenu.style.visibility = '';
-        fontSizeMenu.removeAttribute('style');
-    }
-};
+    fontSizeMenu.classList.toggle('menu-active');
+}
 
 // --------------------------------------------------- //
-
+// Функция отрисовки / скрытия меню выбора цвета шрифта (с помощью "elem.classList.toggle"):
 function showHideFontColorMenu(e) {
     let target = e.currentTarget;
 
-    if (!target.dataset.fontColor) {
-        return;
+    if (target.id !== 'font-color-btn') {
+        return; // если обработчик на "e.currentTarget" эта проверка НЕ нужна
     };
 
-    let fontColorMenu = document.querySelectorAll('.font-color-menu')[0];
-    let fontColorMenuState = fontColorMenu.style.visibility;
-
-    if (fontColorMenuState == '') {
-        fontColorMenu.style.visibility = 'visible';
-    }
-
-    else {
-        fontColorMenu.style.visibility = '';
-        fontColorMenu.removeAttribute('style');
-    };
+    let fontColorMenu = document.querySelector('.font-color-menu');
+    fontColorMenu.classList.toggle('menu-active');
 };
 
 // --------------------------------------------------- //
 // Закрытие всех активных меню по даблклику:
-function hideAllMenus() { // ------------- а по клику ЛКМ, как-то можно закрывать все открытые меню?
-    let activeMenusList = document.querySelectorAll('.font-edit-row__menu');
+function hideAllActiveMenus() {
+    let activeMenusList = document.querySelectorAll('.menu-active');
 
-    let activeMenusListArr = Array.from(activeMenusList);
-
-    activeMenusListArr.forEach( (menu) => {
-        if ( menu.getAttribute('style') == null ) {
-            return;
-        }
-        
-        let menuState = menu.getAttribute('style');
-
-        if (menuState == 'visibility: visible;') {
-            menu.style.visibility = '';
-            menu. removeAttribute('style');
-        };
-    });
-};
+    Array.from(activeMenusList).forEach( (menu) => {        
+        menu.classList.remove('menu-active');
+    })
+}
 
 // --------------------------------------------------- //
 
@@ -83,44 +52,54 @@ function hideAllMenus() { // ------------- а по клику ЛКМ, как-т�
 // --------------------------------------------------- //
 // скрыть все открытые меню при клике на "mail-body":
 function hideActiveMenus() {
-    let activeMenusList = document.querySelectorAll('.font-edit-row__menu');
+    let activeMenusList = document.querySelectorAll('.menu-active');
 
-    let activeMenusListArr = Array.from(activeMenusList);
+    Array.from(activeMenusList).forEach( (menu) => {        
+        menu.classList.remove('menu-active');
+    })
+    
+    // Таже функция, но через стили:
+    // let activeMenusList = document.querySelectorAll('.font-edit-row__menu');
 
-    activeMenusListArr.forEach( (menu) => {
-        if ( menu.getAttribute('style') == null ) {
-            return;
-        }
+    // let activeMenusListArr = Array.from(activeMenusList);
+
+    // activeMenusListArr.forEach( (menu) => {
+    //     if ( menu.getAttribute('style') == null ) {
+    //         return;
+    //     }
         
-        let menuState = menu.getAttribute('style');
+    //     let menuState = menu.getAttribute('style');
 
-        if (menuState == 'visibility: visible;') {
-            menu.style.visibility = '';
-            menu. removeAttribute('style');
-        };
-    });
+    //     if (menuState == 'visibility: visible;') {
+    //         menu.style.visibility = '';
+    //         menu.removeAttribute('style');
+    //     };
+    // });
 }
 
-// Открыть / закрыть меню выбора приоритета письма:
-function showHideMailPriMenu(e) {
-    let target = e.target;
-    
-    //if (target.id !== 'mail-priority-btn') { // если указать эту проверку, то обработчик (event.target) будет вызываться только с краев кнопки
-    // (т.к. в центре ее дочерние эл-ты). Т.е. на document этот обработчик не прицепить.
-    //    return;
-    //}
+// Открыть / закрыть меню выбора приоритета письма (с помощью указания стилей и dataset - много кода):
+function showHideMailPriMenu() {
+    let mailPriorityMenu = document.querySelector('.mail-priority-menu');
+    let mailPriorityMenuState = mailPriorityMenu.style.visibility;
 
-    let mailPriMenu = document.querySelector('.mail-priority-menu');
-    let mailPriMenuState = mailPriMenu.style.visibility;
-
-    if (mailPriMenuState == '') {
-        mailPriMenu.style.visibility = 'visible';
+    if (mailPriorityMenuState == '') {
+        mailPriorityMenu.style.visibility = 'visible';
     }
 
     else {
-        mailPriMenu.style.visibility = '';
-        mailPriMenu.removeAttribute('style');
-    }
+        mailPriorityMenu.style.visibility = '';
+        mailPriorityMenu.removeAttribute('style');
+    };
+    
+    // Почему-то тут НЕ работает "classList.toggle()"
+    // let target = e.currentTarget;
+
+    // if (target.id !== 'mail-priority-btn') {
+    //     return; // если обработчик на "e.currentTarget" эта проверка НЕ нужна
+    // };
+
+    // let mailPriorityMenu = document.querySelector('.mail-priority-menu');
+    // mailPriorityMenu.classList.toggle('menu-active');    
 };
 
 // Подсветить элемент выбора приоритета письма:
@@ -189,15 +168,15 @@ function paintPriorityBoxBackground(e) {
 // ------------------------------------------------- Обработчики ------------------------------------------------------------ //
 
 // кнопка показа и скрытия меню размеров шрифта:
-const fontSizeMenuBtn = document.querySelector('.font-size-edit-container');
-fontSizeMenuBtn.addEventListener( 'click', showHideFontSizeMenu );
+const showHideFontSizeMenuBtn = document.querySelector('#font-size-btn');
+showHideFontSizeMenuBtn.addEventListener('click', showHideFontSizeMenu);
 
 // кнопка показа и скрытия меню цвета шрифта:
 const fontColorMenuBtn = document.querySelectorAll('.font-color-edit-container')[0];
 fontColorMenuBtn.addEventListener( 'click', showHideFontColorMenu );
 
 // закрыть все активные меню:
-document.addEventListener( 'dblclick', hideAllMenus );
+document.addEventListener('dblclick', hideAllActiveMenus);
 
 // стилизация выделенной части текста:
 const fontStyleBtnsList = document.querySelectorAll('.font-edit-row__elem');
@@ -220,7 +199,7 @@ Array.from(fontStyleBtnsList).forEach( (btn) => {
     btn.addEventListener( 'mousedown', styleOfSelectedFont ); // как повесить этот обработчик на эвент "click" ? */
 })
 
-// скрыть все открытые меню при клике на "mail-body":
+// скрыть все открытые меню при клике на "mail-body" или "font-edit-row":
 document.querySelector('.mail-body-text').addEventListener('mousedown', hideActiveMenus);
 
 // Открыть / закрыть меню выбора приоритета письма:
