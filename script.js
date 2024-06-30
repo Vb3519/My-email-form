@@ -163,7 +163,12 @@ function paintPriorityBoxBackground(e) {
     };
 }
 
+// стереть весь текст сообщения:
+function deleteAlltext() {    
 
+    let mailText = document.querySelector('.mail-body-text');
+    mailText.innerText = '';
+}
 
 // ------------------------------------------------- Обработчики ------------------------------------------------------------ //
 
@@ -217,4 +222,6 @@ document.querySelector('.mail-priority-menu').addEventListener('mouseover', stan
 Array.from( document.querySelectorAll('.mail-priority-menu__elem') ).forEach( (menuElem) => {
     menuElem.addEventListener('click', paintPriorityBoxBackground)})
 
+// стереть весь текст сообщения:
+document.querySelector('#delete-text').addEventListener('click', deleteAlltext);
 
