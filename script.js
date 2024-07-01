@@ -174,35 +174,16 @@ function deleteAlltext() {
 }
 
 // подсчет количества букв в сообщении:
-function countMsgLetters(e) {
-    let target = e.currentTarget;
+function countMailLetters() {
+    // let target = e.currentTarget;
 
-    if (target.className !== 'mail-body-text') {
-        return;
-    };
+    // if (target.className !== 'mail-body-text') {
+    //     return; // ------------------------------------ когда использовать такую првоерку?
+    // };
 
-    let letterCounter = 0;
-
-    let msgText = document.querySelector('.mail-body-text').innerText;
-   
-
-    for (let i = 0; i < msgText.length - 1; i++) {
-        // let msgTextLetter = msgText[i].toLowerCase();
-
-        // if (msgText == '') {
-        //     letterCounter = 0;
-        // };
-        
-        letterCounter += 1;
-    };
-
-    if (document.getSelection().toString()) {        
-        // letterCounter = msgText.length;
-        return;
-    }
-
-    document.querySelector('.font-edit-row__letter-counter').innerText = letterCounter;
-}
+    let letterCounter = document.querySelector('.font-edit-row__letter-counter');
+    letterCounter.innerHTML = mailTextWindow.innerText.length;
+};
 
 
 
@@ -262,4 +243,5 @@ Array.from( document.querySelectorAll('.mail-priority-menu__elem') ).forEach( (m
 document.querySelector('#delete-text').addEventListener('click', deleteAlltext);
 
 // подсчет количества букв в сообщении:
-document.querySelector('.mail-body-text').addEventListener('keydown', countMsgLetters);
+const mailTextWindow = document.querySelector('.mail-body-text');
+mailTextWindow.addEventListener('keyup', countMailLetters);
