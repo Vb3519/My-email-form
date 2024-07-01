@@ -168,7 +168,43 @@ function deleteAlltext() {
 
     let mailText = document.querySelector('.mail-body-text');
     mailText.innerText = '';
+
+    let letterCounter = document.querySelectorAll('.font-edit-row__letter-counter')[0];
+    letterCounter.innerText = 0;
 }
+
+// подсчет количества букв в сообщении:
+function countMsgLetters(e) {
+    let target = e.currentTarget;
+
+    if (target.className !== 'mail-body-text') {
+        return;
+    };
+
+    let letterCounter = 0;
+
+    let msgText = document.querySelector('.mail-body-text').innerText;
+   
+
+    for (let i = 0; i < msgText.length - 1; i++) {
+        // let msgTextLetter = msgText[i].toLowerCase();
+
+        // if (msgText == '') {
+        //     letterCounter = 0;
+        // };
+        
+        letterCounter += 1;
+    };
+
+    if (document.getSelection().toString()) {        
+        // letterCounter = msgText.length;
+        return;
+    }
+
+    document.querySelector('.font-edit-row__letter-counter').innerText = letterCounter;
+}
+
+
 
 // ------------------------------------------------- Обработчики ------------------------------------------------------------ //
 
@@ -225,3 +261,5 @@ Array.from( document.querySelectorAll('.mail-priority-menu__elem') ).forEach( (m
 // стереть весь текст сообщения:
 document.querySelector('#delete-text').addEventListener('click', deleteAlltext);
 
+// подсчет количества букв в сообщении:
+document.querySelector('.mail-body-text').addEventListener('keydown', countMsgLetters);

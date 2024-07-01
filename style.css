@@ -165,6 +165,20 @@ body {
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
 }
 
+/* счетчик букв в сообщении */
+.font-edit-row__letter-counter {
+    margin-left: auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative;
+    padding: 0.3rem;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    color: #7e7d7d;
+}
+
 /* ----------------------------------------------------- двойные кнопки (стили): */
 .font-edit-row__container {
     position: relative; /* позиционирование для отображения подсказки */
